@@ -1,0 +1,104 @@
+/* Footer.module.css */
+
+.footer {
+  background-color: #8E021C;
+  padding: 80px 8%;
+  color: #F3EFDF;
+  
+  /* --- ADICIONADO: Box Shadow na parte de cima --- */
+  /* Sintaxe: deslocamento-x deslocamento-y(negativo para subir) blur espalhamento cor */
+  box-shadow: 0px -15px 35px rgba(0, 0, 0, 0.3);
+  
+  /* Garante que a sombra fique por cima da seção anterior se necessário */
+  position: relative; 
+  z-index: 10;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 40px;
+}
+
+.logoColumn {
+  /* --- AJUSTADO: Aumentado o flex-grow para dar mais espaço para a logo crescer --- */
+  flex: 2; 
+  /* min-width removido para não travar o crescimento, flex resolve */
+  display: flex;
+  justify-content: flex-start;
+}
+
+.logo {
+  /* --- AJUSTADO: Aumentado drasticamente o tamanho máximo da logo --- */
+  max-width: 200px; /* Tente valores maiores aqui se ainda achar pequeno, ex: 600px */
+  width: 100%;      /* Faz a imagem ocupar o espaço disponível até o max-width */
+  height: auto;     /* Mantém a proporção */
+  display: block;
+}
+
+.linkColumn {
+  flex: 1;
+  min-width: 150px;
+}
+
+.title {
+  font-family: 'Handlee', cursive;
+  font-size: 2rem;
+  font-weight: 400;
+  margin-bottom: 25px;
+  color: #F3EFDF;
+}
+
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.list li {
+  margin-bottom: 15px;
+}
+
+.list a {
+  color: #F3EFDF;
+  text-decoration: none;
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+  transition: opacity 0.3s ease;
+}
+
+.list a:hover {
+  opacity: 0.7;
+}
+
+/* --- Media Queries Gerais (Mobile) --- */
+@media (max-width: 1024px) {
+  /* Se tiver tablet/telas médias, talvez precise ajustar o max-width da logo aqui */
+  .logo {
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 50px;
+  }
+
+  .logoColumn {
+    justify-content: center;
+    width: 100%; /* Ocupa largura total no mobile para centralizar */
+  }
+
+  .logo {
+    /* --- AJUSTADO: Reduzido um pouco no mobile para não quebrar o layout --- */
+    max-width: 300px; 
+    margin: 0 auto;
+  }
+}
