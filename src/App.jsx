@@ -24,6 +24,7 @@ import Footer from './compenents/Footer';
 
 gsap.registerPlugin(ScrollTrigger);
 
+/* ── Animated Title ── */
 const AnimatedTitle = ({ text, className, Tag = 'h2' }) => {
   const textRef = useRef(null);
 
@@ -63,6 +64,7 @@ const AnimatedTitle = ({ text, className, Tag = 'h2' }) => {
   );
 };
 
+/* ── Animated Text Scrub ── */
 const AnimatedTextScrub = ({ text, className }) => {
   const textRef = useRef(null);
 
@@ -99,6 +101,7 @@ const AnimatedTextScrub = ({ text, className }) => {
   );
 };
 
+/* ── App ── */
 const App = () => {
   const containerRef  = useRef(null);
   const textPathRef   = useRef(null);
@@ -108,6 +111,7 @@ const App = () => {
   const startX = useRef(0);
   const scrollLeft = useRef(0);
 
+  /* Marquee scroll */
   useGSAP(() => {
     gsap.to(textPathRef.current, {
       attr: { startOffset: "-50%" },
@@ -121,6 +125,7 @@ const App = () => {
     });
   }, { scope: containerRef });
 
+  /* Carousel arrows — scroll programático */
   const scrollCards = (direction) => {
     if (!cardsRef.current) return;
     const card = cardsRef.current.querySelector('.exp-card');
@@ -169,7 +174,8 @@ const App = () => {
       <div>
         <Header />
 
-        <section className="hero-section">
+        {/* ── Hero ── */}
+        <section id="inicio" className="hero-section">
           <div className="hero-bg">
             <picture>
               <source media="(max-width: 768px)" srcSet={bannerMobile} />
@@ -186,6 +192,7 @@ const App = () => {
           </div>
         </section>
 
+        {/* ── Marquee ── */}
         <div className="marquee-wrapper" ref={containerRef}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -212,7 +219,8 @@ const App = () => {
           </svg>
         </div>
 
-        <section className="about-section">
+        {/* ── About ── */}
+        <section id="sobre" className="about-section">
           <img src={carneVetor} alt="Decoração Fundo" className="bg-icon-right" />
 
           <div className="about-left">
@@ -233,7 +241,8 @@ const App = () => {
           </div>
         </section>
 
-        <section className="experience-section">
+        {/* ── Experience ── */}
+        <section id="experiencia" className="experience-section">
           <img src={talherVetor} alt="Talheres Fundo" className="bg-icon-talher" />
 
           <div className="experience-header">
@@ -310,7 +319,8 @@ const App = () => {
           </div>
         </section>
 
-        <section className="assados-section">
+        {/* ── Assados ── */}
+        <section id="assados" className="assados-section">
           <div className="assados-container">
             <div className="assados-header">
               <AnimatedTitle
@@ -348,7 +358,8 @@ const App = () => {
           </div>
         </section>
 
-        <section className="details-section">
+       {/* ── Details ── */}
+        <section id="detalhes" className="details-section">
           <img src={frangoVetor} alt="Fundo Bife" className="bg-icon-bife" />
           <img src={bifeVetor} alt="Fundo Frango" className="bg-icon-frango" />
 
