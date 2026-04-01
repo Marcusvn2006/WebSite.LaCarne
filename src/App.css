@@ -18,7 +18,9 @@ body {
   overflow-x: hidden;
 }
 
-/* --- Hero Section --- */
+/* ─────────────────────────────────────────
+   HERO
+───────────────────────────────────────── */
 .hero-section {
   min-height: 100vh;
   display: flex;
@@ -63,7 +65,9 @@ body {
   color: #e0e0e0;
 }
 
-/* --- Marquee Section --- */
+/* ─────────────────────────────────────────
+   MARQUEE
+───────────────────────────────────────── */
 .marquee-wrapper {
   width: 100%;
   max-width: 100vw;
@@ -98,7 +102,9 @@ body {
   dominant-baseline: middle;
 }
 
-/* --- About Section --- */
+/* ─────────────────────────────────────────
+   ABOUT
+───────────────────────────────────────── */
 .about-section {
   background-color: #F3EFDF;
   padding: 120px 8% 200px;
@@ -113,12 +119,12 @@ body {
 
 .bg-icon-right {
   position: absolute;
-  bottom: -0px; 
-  right: -20px; 
-  width: 200px; 
-  z-index: 1; 
+  bottom: 0;
+  right: -20px;
+  width: 200px;
+  z-index: 1;
   pointer-events: none;
-  opacity: 0.8; 
+  opacity: 0.8;
 }
 
 .about-left {
@@ -132,14 +138,14 @@ body {
   object-fit: cover;
   border-radius: 28px;
   display: block;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15); 
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
 }
 
 .years-badge {
   position: absolute;
   bottom: -20px;
   left: -40px;
-  background-color: #ffff;
+  background-color: #fff;
   color: #931a25;
   font-family: 'Handlee', cursive;
   font-size: 2.4rem;
@@ -178,10 +184,12 @@ body {
   flex-wrap: wrap;
 }
 
-/* --- Experience / Cards Section --- */
+/* ─────────────────────────────────────────
+   EXPERIENCE / CARDS
+───────────────────────────────────────── */
 .experience-section {
-  background-color: #F3EFDF; 
-  padding: 100px 2% 120px; 
+  background-color: #F3EFDF;
+  padding: 100px 2% 120px;
   position: relative;
   text-align: center;
   z-index: 2;
@@ -200,7 +208,7 @@ body {
 .experience-header {
   position: relative;
   z-index: 2;
-  margin-bottom: 60px; 
+  margin-bottom: 60px;
 }
 
 .experience-title {
@@ -222,8 +230,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 20px; 
-  width: 100%; 
+  gap: 20px;
+  width: 100%;
   position: relative;
   z-index: 2;
   margin-bottom: 60px;
@@ -238,6 +246,7 @@ body {
   align-items: center;
   justify-content: center;
   transition: transform 0.2s ease;
+  flex-shrink: 0;
 }
 
 .carousel-arrow:hover {
@@ -246,43 +255,43 @@ body {
 
 .cards-container {
   display: flex;
-  gap: 40px; 
+  gap: 40px;
   width: 100%;
-  max-width: 1600px; 
+  max-width: 1600px;
   justify-content: center;
 }
 
 .exp-card {
-  background-color: #ffff;
+  background-color: #fff;
   border-radius: 24px;
   flex: 1;
-  max-width: 440px; 
+  max-width: 440px;
   text-align: left;
   display: flex;
   flex-direction: column;
-  position: relative; 
-  z-index: 1; 
-  margin-left: 15px; 
-  box-shadow: 
-    0 8px 25px rgba(0, 0, 0, 0.08), 
-    -15px 15px 0px 0px #931a25; 
+  position: relative;
+  z-index: 1;
+  margin-left: 15px;
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.08),
+    -15px 15px 0px 0px #931a25;
 }
 
 .exp-card-img {
   width: 100%;
-  height: 240px; 
+  height: 240px;
   object-fit: cover;
   border-top-left-radius: 24px;
   border-top-right-radius: 24px;
 }
 
 .exp-card-content {
-  padding: 30px 35px; 
+  padding: 30px 35px;
 }
 
 .exp-card-title {
   font-family: 'Handlee', cursive;
-  font-size: 2.2rem; 
+  font-size: 2.2rem;
   color: #931a25;
   font-weight: 400;
   margin-bottom: 15px;
@@ -290,7 +299,7 @@ body {
 
 .exp-card-desc {
   color: #4a4a4a;
-  font-size: 1.05rem; 
+  font-size: 1.05rem;
   line-height: 1.6;
 }
 
@@ -302,14 +311,14 @@ body {
   margin-top: 20px;
 }
 
-/* --- ASSADOS SECTION --- */
+/* ─────────────────────────────────────────
+   ASSADOS
+───────────────────────────────────────── */
 .assados-section {
   background-color: #8E021C;
   border-radius: 0 80px 80px 0;
   padding: 70px 6% 80px;
   color: #F3EFDF;
-  margin-left: 0;
-  margin-right: 0;
 }
 
 .assados-container {
@@ -322,10 +331,9 @@ body {
 
 .assados-header {
   display: flex;
-  align-items: flex-start;
+  align-items: baseline;
   justify-content: flex-start;
   gap: 40px;
-  align-items: baseline;
   width: 100%;
 }
 
@@ -366,8 +374,6 @@ body {
   box-shadow: 10px 10px 0px 0px #000000;
 }
 
-.assados-btn-wrapper {}
-
 .assados-right {
   flex: 1;
   display: flex;
@@ -389,7 +395,9 @@ body {
   color: #F3EFDF;
 }
 
-/* --- Details Section --- */
+/* ─────────────────────────────────────────
+   DETAILS
+───────────────────────────────────────── */
 .details-section {
   background-color: #F3EFDF;
   padding: 120px 8% 120px;
@@ -418,7 +426,7 @@ body {
   z-index: 0;
 }
 
-.details-top, 
+.details-top,
 .details-content {
   position: relative;
   z-index: 1;
@@ -521,17 +529,20 @@ body {
   line-height: 1.6;
 }
 
-/* --- Media Queries Gerais (Mobile) --- */
+/* ═══════════════════════════════════════════
+   TABLET  ≤ 1024px
+═══════════════════════════════════════════ */
 @media (max-width: 1024px) {
+  /* About */
   .about-section {
     flex-direction: column;
     gap: 60px;
     padding: 80px 5% 120px;
     text-align: center;
   }
-  
+
   .bg-icon-right {
-    width: 140px; 
+    width: 140px;
     bottom: -20px;
     right: -10px;
     opacity: 0.6;
@@ -548,45 +559,57 @@ body {
     left: 50%;
     transform: translateX(-50%);
   }
-  
+
   .about-buttons {
     justify-content: center;
   }
 
-  .cards-container {
-    flex-wrap: wrap; 
-    gap: 40px;
-  }
-  
-  .exp-card {
-    min-width: 300px;
-    max-width: 90%; 
-    margin-left: 15px;
-  }
-
+  /* Experience */
   .experience-title {
     font-size: 3.5rem;
   }
-  
+
   .bg-icon-talher {
     width: 120px;
   }
 
+  .cards-container {
+    flex-wrap: wrap;
+    gap: 40px;
+  }
+
+  .exp-card {
+    min-width: 300px;
+    max-width: 90%;
+    margin-left: 15px;
+  }
+
+  /* Assados */
   .assados-section {
-    margin: 0; 
-    border-radius: 0; 
+    border-radius: 0;
     padding: 60px 5%;
   }
 
-  .assados-left, 
-  .assados-right {
-    width: 100%; 
+  .assados-body {
+    flex-direction: column;
+    gap: 40px;
   }
 
-  .assados-img-tall, 
+  .assados-left,
+  .assados-right {
+    width: 100%;
+    flex: unset;
+  }
+
+  .assados-img-tall,
   .assados-img-wide {
-    height: auto; 
+    height: auto;
     max-height: 400px;
+  }
+
+  /* Details */
+  .details-top {
+    margin: 0 auto 60px auto;
   }
 
   .details-content {
@@ -599,5 +622,201 @@ body {
 
   .features-grid {
     grid-template-columns: 1fr;
+  }
+}
+
+/* ═══════════════════════════════════════════
+   MOBILE  ≤ 768px
+═══════════════════════════════════════════ */
+@media (max-width: 768px) {
+  /* Hero */
+  .hero-section {
+    padding: 0 6%;
+    align-items: flex-end;
+    padding-bottom: 80px;
+  }
+
+  .hero-bg img {
+    object-position: 70% center;
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+
+  .hero-title {
+    font-size: 3.2rem;
+  }
+
+  .hero-text {
+    font-size: 0.95rem;
+  }
+
+  /* Marquee */
+  .marquee-svg {
+    margin-top: -180px;
+  }
+
+  .marquee-bg {
+    stroke-width: 80;
+  }
+
+  .marquee-text {
+    font-size: 52px;
+  }
+
+  /* About */
+  .about-section {
+    padding: 70px 5% 100px;
+    margin-top: -60px;
+  }
+
+  .about-title {
+    font-size: 3rem;
+  }
+
+  .about-text {
+    font-size: 0.95rem;
+  }
+
+  .years-badge {
+    font-size: 1.8rem;
+    padding: 12px 28px;
+    bottom: -16px;
+  }
+
+  /* Experience */
+  .experience-section {
+    padding: 70px 4% 80px;
+  }
+
+  .experience-title {
+    font-size: 2.6rem;
+  }
+
+  .experience-subtitle {
+    font-size: 0.95rem;
+  }
+
+  /* Carousel — scroll horizontal com snap */
+  .experience-carousel {
+    gap: 0;
+    margin-bottom: 40px;
+  }
+
+  .carousel-arrow {
+    display: none;
+  }
+
+  .cards-container {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    gap: 24px;
+    padding: 20px 20px 30px;
+    justify-content: flex-start;
+    scrollbar-width: none;
+  }
+
+  .cards-container::-webkit-scrollbar {
+    display: none;
+  }
+
+  .exp-card {
+    flex: 0 0 82vw;
+    max-width: 82vw;
+    min-width: unset;
+    margin-left: 12px;
+    scroll-snap-align: center;
+  }
+
+  .exp-card:first-child {
+    margin-left: 20px;
+  }
+
+  .exp-card:last-child {
+    margin-right: 20px;
+  }
+
+  .exp-card-title {
+    font-size: 1.8rem;
+  }
+
+  /* Assados */
+  .assados-title {
+    font-size: 2.8rem;
+  }
+
+  .assados-arrow {
+    width: 36px;
+  }
+
+  .assados-img-tall {
+    max-height: 300px;
+  }
+
+  /* Details */
+  .details-section {
+    padding: 80px 5% 80px;
+  }
+
+  .details-title {
+    font-size: 3rem;
+  }
+
+  .details-cards {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .detail-card {
+    min-height: 180px;
+  }
+
+  .features-grid {
+    gap: 28px;
+  }
+
+  .bg-icon-bife,
+  .bg-icon-frango {
+    width: 160px;
+    opacity: 0.4;
+  }
+}
+
+/* ═══════════════════════════════════════════
+   MOBILE PEQUENO  ≤ 480px
+═══════════════════════════════════════════ */
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2.6rem;
+  }
+
+  .about-title {
+    font-size: 2.4rem;
+  }
+
+  .experience-title {
+    font-size: 2.2rem;
+  }
+
+  .assados-title {
+    font-size: 2.2rem;
+  }
+
+  .details-title {
+    font-size: 2.4rem;
+  }
+
+  .exp-card {
+    flex: 0 0 90vw;
+    max-width: 90vw;
+  }
+
+  .years-badge {
+    font-size: 1.5rem;
+    padding: 10px 22px;
   }
 }
