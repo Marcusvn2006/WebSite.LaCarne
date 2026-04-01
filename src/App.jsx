@@ -5,6 +5,7 @@ import { useGSAP } from '@gsap/react';
 import { ReactLenis } from 'lenis/react';
 
 import banner from "../src/assets/img/banner-lacarne.webp";
+import bannerMobile from "../src/assets/img/banner-mobile.webp";
 import arrowImg from "../src/assets/img/arrowamarelo.png";
 import ctaImg from "../src/assets/img/cta-img.webp";
 import carneVetor from "../src/assets/svg/carnevetorfundo.svg";
@@ -23,7 +24,6 @@ import Footer from './compenents/Footer';
 
 gsap.registerPlugin(ScrollTrigger);
 
-/* ── Animated Title ── */
 const AnimatedTitle = ({ text, className, Tag = 'h2' }) => {
   const textRef = useRef(null);
 
@@ -63,7 +63,6 @@ const AnimatedTitle = ({ text, className, Tag = 'h2' }) => {
   );
 };
 
-/* ── Animated Text Scrub ── */
 const AnimatedTextScrub = ({ text, className }) => {
   const textRef = useRef(null);
 
@@ -100,13 +99,15 @@ const AnimatedTextScrub = ({ text, className }) => {
   );
 };
 
-/* ── App ── */
 const App = () => {
   const containerRef  = useRef(null);
   const textPathRef   = useRef(null);
   const cardsRef      = useRef(null);
 
-  /* Marquee scroll */
+  const isDragging = useRef(false);
+  const startX = useRef(0);
+  const scrollLeft = useRef(0);
+
   useGSAP(() => {
     gsap.to(textPathRef.current, {
       attr: { startOffset: "-50%" },
@@ -120,7 +121,6 @@ const App = () => {
     });
   }, { scope: containerRef });
 
-  /* Carousel arrows — scroll programático */
   const scrollCards = (direction) => {
     if (!cardsRef.current) return;
     const card = cardsRef.current.querySelector('.exp-card');
@@ -128,15 +128,53 @@ const App = () => {
     cardsRef.current.scrollBy({ left: direction * cardWidth, behavior: 'smooth' });
   };
 
+  const handleMouseDown = (e) => {
+    isDragging.current = true;
+    if (cardsRef.current) {
+      cardsRef.current.style.cursor = 'grabbing';
+      cardsRef.current.style.scrollBehavior = 'auto'; 
+      startX.current = e.pageX - cardsRef.current.offsetLeft;
+      scrollLeft.current = cardsRef.current.scrollLeft;
+    }
+  };
+
+  const handleMouseLeave = () => {
+    isDragging.current = false;
+    if (cardsRef.current) {
+      cardsRef.current.style.cursor = 'grab';
+      cardsRef.current.style.scrollBehavior = 'smooth';
+    }
+  };
+
+  const handleMouseUp = () => {
+    isDragging.current = false;
+    if (cardsRef.current) {
+      cardsRef.current.style.cursor = 'grab';
+      cardsRef.current.style.scrollBehavior = 'smooth';
+    }
+  };
+
+  const handleMouseMove = (e) => {
+    if (!isDragging.current) return;
+    e.preventDefault();
+    if (cardsRef.current) {
+      const x = e.pageX - cardsRef.current.offsetLeft;
+      const walk = (x - startX.current) * 2;
+      cardsRef.current.scrollLeft = scrollLeft.current - walk;
+    }
+  };
+
   return (
     <ReactLenis root options={{ lerp: 0.05, smoothWheel: true }}>
       <div>
         <Header />
 
-        {/* ── Hero ── */}
         <section className="hero-section">
           <div className="hero-bg">
-            <img src={banner} alt="La Carne Banner" />
+            <picture>
+              <source media="(max-width: 768px)" srcSet={bannerMobile} />
+              <img src={banner} alt="La Carne Banner" />
+            </picture>
           </div>
           <div className="hero-content">
             <h1 className="hero-title">Title teste</h1>
@@ -148,7 +186,6 @@ const App = () => {
           </div>
         </section>
 
-        {/* ── Marquee ── */}
         <div className="marquee-wrapper" ref={containerRef}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -175,7 +212,6 @@ const App = () => {
           </svg>
         </div>
 
-        {/* ── About ── */}
         <section className="about-section">
           <img src={carneVetor} alt="Decoração Fundo" className="bg-icon-right" />
 
@@ -197,7 +233,6 @@ const App = () => {
           </div>
         </section>
 
-        {/* ── Experience ── */}
         <section className="experience-section">
           <img src={talherVetor} alt="Talheres Fundo" className="bg-icon-talher" />
 
@@ -226,13 +261,30 @@ const App = () => {
               </svg>
             </button>
 
-            <div className="cards-container" ref={cardsRef}>
+            <div 
+              className="cards-container" 
+              ref={cardsRef}
+              onMouseDown={handleMouseDown}
+              onMouseLeave={handleMouseLeave}
+              onMouseUp={handleMouseUp}
+              onMouseMove={handleMouseMove}
+            >
               {[1, 2, 3].map((item) => (
-                <div key={item} className="exp-card">
-                  <img src={cardImg} alt="Preparo de Carne" className="exp-card-img" />
+                <div 
+                  key={item} 
+                  className="exp-card"
+                  onClick={(e) => {
+                    if (!isDragging.current) {
+                      e.currentTarget.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                    }
+                  }}
+                  role="button"
+                  tabIndex={0}
+                >
+                  <img src={cardImg} alt="Preparo de Carne" className="exp-card-img disable-drag" />
                   <div className="exp-card-content">
                     <h3 className="exp-card-title">Title teste Title teste</h3>
-                    <p className="exp-card-desc">
+                    <p className="exp-card-desc disable-drag">
                       Lorem ipsum dolor sit amet. Ad fugiat quaerat in saepe
                       doloribus est molestias illum. Lorem ipsum dolor sit amet.
                     </p>
@@ -258,7 +310,6 @@ const App = () => {
           </div>
         </section>
 
-        {/* ── Assados ── */}
         <section className="assados-section">
           <div className="assados-container">
             <div className="assados-header">
@@ -297,7 +348,6 @@ const App = () => {
           </div>
         </section>
 
-        {/* ── Details ── */}
         <section className="details-section">
           <img src={frangoVetor} alt="Fundo Bife" className="bg-icon-bife" />
           <img src={bifeVetor} alt="Fundo Frango" className="bg-icon-frango" />
