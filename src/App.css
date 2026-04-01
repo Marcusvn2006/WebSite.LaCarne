@@ -38,11 +38,13 @@ body {
   z-index: 1;
 }
 
+.hero-bg picture,
 .hero-bg img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: right;
+  display: block;
 }
 
 .hero-content {
@@ -272,9 +274,13 @@ body {
   position: relative;
   z-index: 1;
   margin-left: 15px;
-  box-shadow:
-    0 8px 25px rgba(0, 0, 0, 0.08),
-    -15px 15px 0px 0px #931a25;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08), -15px 15px 0px 0px #931a25;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.exp-card:hover {
+  transform: translateY(-5px);
 }
 
 .exp-card-img {
@@ -533,7 +539,6 @@ body {
    TABLET  ≤ 1024px
 ═══════════════════════════════════════════ */
 @media (max-width: 1024px) {
-  /* About */
   .about-section {
     flex-direction: column;
     gap: 60px;
@@ -564,7 +569,6 @@ body {
     justify-content: center;
   }
 
-  /* Experience */
   .experience-title {
     font-size: 3.5rem;
   }
@@ -584,7 +588,6 @@ body {
     margin-left: 15px;
   }
 
-  /* Assados */
   .assados-section {
     border-radius: 0;
     padding: 60px 5%;
@@ -607,7 +610,6 @@ body {
     max-height: 400px;
   }
 
-  /* Details */
   .details-top {
     margin: 0 auto 60px auto;
   }
@@ -631,17 +633,26 @@ body {
 @media (max-width: 768px) {
   /* Hero */
   .hero-section {
-    padding: 0 6%;
-    align-items: flex-end;
-    padding-bottom: 80px;
-  }
-
-  .hero-bg img {
-    object-position: 70% center;
+    padding: 150px 6% 80px;
+    align-items: flex-start;
+    min-height: 110svh;
   }
 
   .hero-content {
+    margin-top: -50px;
     max-width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-bg picture,
+  .hero-bg img {
+    object-position: center bottom;
+    transform: none !important;
+    animation: none !important;
+    transition: none !important;
   }
 
   .hero-title {
@@ -654,21 +665,37 @@ body {
 
   /* Marquee */
   .marquee-svg {
-    margin-top: -180px;
+    margin-top: -120px;
   }
 
   .marquee-bg {
-    stroke-width: 80;
+    stroke-width: 220;
   }
 
   .marquee-text {
-    font-size: 52px;
+    font-size: 72px;
   }
 
   /* About */
   .about-section {
-    padding: 70px 5% 100px;
+    padding: 150px 5% 100px;
     margin-top: -60px;
+    text-align: left;
+  }
+
+  .bg-icon-right {
+    bottom: 50px;
+    width: 140px;
+    right: -10px;
+    opacity: 0.6;
+  }
+
+  .about-image {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
   }
 
   .about-title {
@@ -677,6 +704,12 @@ body {
 
   .about-text {
     font-size: 0.95rem;
+  }
+
+  .about-buttons {
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+    gap: 10px;
   }
 
   .years-badge {
@@ -698,7 +731,6 @@ body {
     font-size: 0.95rem;
   }
 
-  /* Carousel — scroll horizontal com snap */
   .experience-carousel {
     gap: 0;
     margin-bottom: 40px;
@@ -714,10 +746,18 @@ body {
     overflow-x: auto;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
     gap: 24px;
     padding: 20px 20px 30px;
     justify-content: flex-start;
     scrollbar-width: none;
+    cursor: grab;
+    touch-action: pan-x;
+  }
+
+  .cards-container:active {
+    cursor: grabbing;
+    scroll-snap-type: none;
   }
 
   .cards-container::-webkit-scrollbar {
@@ -730,6 +770,12 @@ body {
     min-width: unset;
     margin-left: 12px;
     scroll-snap-align: center;
+    user-select: none;
+  }
+
+  .disable-drag {
+    pointer-events: none;
+    -webkit-user-drag: none;
   }
 
   .exp-card:first-child {
@@ -745,30 +791,87 @@ body {
   }
 
   /* Assados */
+  .assados-header {
+    margin-bottom: 20px;
+  }
+
   .assados-title {
     font-size: 2.8rem;
+    text-align: left;
   }
 
   .assados-arrow {
-    width: 36px;
+    display: none;
+  }
+
+  .assados-body {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .assados-left,
+  .assados-right {
+    display: contents;
+  }
+
+  .assados-img-wide {
+    order: 1;
+    height: auto;
+    max-height: 250px;
   }
 
   .assados-img-tall {
+    order: 2;
+    height: auto;
     max-height: 300px;
+  }
+
+  .assados-text {
+    order: 3;
+  }
+
+  .assados-btn-wrapper {
+    order: 4;
+    width: 100%;
+    display: flex;
   }
 
   /* Details */
   .details-section {
     padding: 80px 5% 80px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .details-content,
+  .details-left {
+    display: contents;
   }
 
   .details-title {
     font-size: 3rem;
+    order: 1;
+    margin-bottom: 20px;
+  }
+
+  .details-top {
+    margin: 0 0 40px 0;
+    order: 2;
   }
 
   .details-cards {
+    display: flex;
     flex-direction: column;
     gap: 20px;
+    order: 3;
+    width: 100%;
+  }
+
+  .details-right {
+    order: 4;
+    margin-top: 10px;
+    width: 100%;
   }
 
   .detail-card {
