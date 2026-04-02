@@ -594,6 +594,10 @@ body {
     border-radius: 0;
     padding: 60px 5%;
   }
+  
+  .assados-title {
+    white-space: normal;
+  }
 
   .assados-body {
     flex-direction: column;
@@ -800,6 +804,7 @@ body {
   .assados-title {
     font-size: 2.8rem;
     text-align: left;
+    white-space: normal;
   }
 
   .assados-arrow {

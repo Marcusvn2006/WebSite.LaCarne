@@ -10,6 +10,8 @@ import arrowImg from "../src/assets/img/arrowamarelo.png";
 import ctaImg from "../src/assets/img/cta-img.webp";
 import carneVetor from "../src/assets/svg/carnevetorfundo.svg";
 import cardImg from "../src/assets/img/imgcardexp.webp";
+import cardDriveImg from "../src/assets/img/card-drive.webp";
+import attEspecializadoImg from "../src/assets/img/att-especializado.webp";
 import talherVetor from "../src/assets/svg/talhervetorfundo.svg";
 import assadosImg from "../src/assets/img/sectionAssados.webp";
 import assadosImg2 from "../src/assets/img/sectionAssados2.webp";
@@ -106,14 +108,17 @@ const experienceCards = [
   {
     title: 'Cortes Selecionados',
     desc: 'Trabalhamos apenas com carnes de alta procedência — macias, saborosas e com o frescor que você merece em cada pedaço.',
+    image: cardImg, // Imagem do primeiro card mantida
   },
   {
     title: 'Delivery Premium',
     desc: 'Sem sair de casa você recebe os melhores cortes na sua porta. Praticidade com o mesmo padrão La Carne de sempre.',
+    image: cardDriveImg, // Nova imagem do segundo card
   },
   {
     title: 'Atendimento Especializado',
     desc: 'Nossa equipe conhece cada corte e está pronta para te indicar a escolha certa para o seu churrasco ou jantar especial.',
+    image: attEspecializadoImg, // Nova imagem do terceiro card
   },
 ];
 
@@ -352,7 +357,7 @@ const App = () => {
                   role="button"
                   tabIndex={0}
                 >
-                  <img src={cardImg} alt="Preparo de Carne" className="exp-card-img disable-drag" />
+                  <img src={card.image} alt={card.title} className="exp-card-img disable-drag" />
                   <div className="exp-card-content">
                     <h3 className="exp-card-title">{card.title}</h3>
                     <p className="exp-card-desc disable-drag">{card.desc}</p>
