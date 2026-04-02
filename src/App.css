@@ -299,6 +299,7 @@ body {
 .exp-card-title {
   font-family: 'Handlee', cursive;
   font-size: 2.2rem;
+  line-height: 1.1;
   color: #931a25;
   font-weight: 400;
   margin-bottom: 15px;
