@@ -101,6 +101,67 @@ const AnimatedTextScrub = ({ text, className }) => {
   );
 };
 
+/* ── Cards data ── */
+const experienceCards = [
+  {
+    title: 'Cortes Selecionados',
+    desc: 'Trabalhamos apenas com carnes de alta procedência — macias, saborosas e com o frescor que você merece em cada pedaço.',
+  },
+  {
+    title: 'Delivery Premium',
+    desc: 'Sem sair de casa você recebe os melhores cortes na sua porta. Praticidade com o mesmo padrão La Carne de sempre.',
+  },
+  {
+    title: 'Atendimento Especializado',
+    desc: 'Nossa equipe conhece cada corte e está pronta para te indicar a escolha certa para o seu churrasco ou jantar especial.',
+  },
+];
+
+const features = [
+  {
+    title: 'Qualidade Garantida',
+    text: 'Selecionamos apenas carnes de alta procedência, com rigoroso controle de qualidade em cada peça que chega ao nosso açougue.',
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4a4a4a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="8" r="7" />
+        <polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88" />
+      </svg>
+    )
+  },
+  {
+    title: 'Cortes Sob Medida',
+    text: 'Fazemos o corte do jeito que você precisa. Seja para o churrasco do fim de semana ou um jantar especial, adaptamos para a sua ocasião.',
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4a4a4a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M8 4h12v8c0 2.2-1.8 4-4 4H8V4z" />
+        <rect x="2" y="10" width="6" height="4" rx="1" />
+        <circle cx="17" cy="7" r="1" />
+      </svg>
+    )
+  },
+  {
+    title: 'Delivery Rápido',
+    text: 'Receba os melhores cortes sem sair de casa. Entregamos com agilidade e o mesmo cuidado do atendimento presencial.',
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4a4a4a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="1" y="3" width="15" height="13" />
+        <polygon points="16 8 20 8 23 11 23 16 16 16 16 8" />
+        <circle cx="5.5" cy="18.5" r="2.5" />
+        <circle cx="18.5" cy="18.5" r="2.5" />
+      </svg>
+    )
+  },
+  {
+    title: 'Açougue de Confiança',
+    text: 'Mais de 4 anos servindo Jaú com excelência. Aqui você encontra um açougue que respeita o cliente e leva qualidade a sério.',
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4a4a4a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+      </svg>
+    )
+  },
+];
+
 /* ── App ── */
 const App = () => {
   const containerRef  = useRef(null);
@@ -137,7 +198,7 @@ const App = () => {
     isDragging.current = true;
     if (cardsRef.current) {
       cardsRef.current.style.cursor = 'grabbing';
-      cardsRef.current.style.scrollBehavior = 'auto'; 
+      cardsRef.current.style.scrollBehavior = 'auto';
       startX.current = e.pageX - cardsRef.current.offsetLeft;
       scrollLeft.current = cardsRef.current.scrollLeft;
     }
@@ -183,10 +244,12 @@ const App = () => {
             </picture>
           </div>
           <div className="hero-content">
-            <h1 className="hero-title">Title teste</h1>
+            <h1 className="hero-title">
+              A carne que você merecia experimentar — finalmente em Jaú.
+            </h1>
             <p className="hero-text">
-              Lorem ipsum dolor sit amet. Ad fugiat quaerat in saepe doloribus
-              est molestiasdnkjkabd asd oajsdoa.
+              Selecionamos os melhores cortes para quem não abre mão de qualidade.
+              Do açougue à sua mesa, com o cuidado de quem entende de carne de verdade.
             </p>
             <Button />
           </div>
@@ -212,8 +275,7 @@ const App = () => {
             />
             <text className="marquee-text">
               <textPath ref={textPathRef} href="#curve" startOffset="50%">
-                embarque nessa leitura super divertida • embarque nessa leitura
-                super divertida • embarque nessa leitura super divertida •
+                Qualidade que se sente no primeiro corte • Açougue Premium em Jaú • Do produtor à sua mesa • Qualidade que se sente no primeiro corte • Açougue Premium em Jaú • Do produtor à sua mesa •
               </textPath>
             </text>
           </svg>
@@ -225,14 +287,14 @@ const App = () => {
 
           <div className="about-left">
             <img src={ctaImg} alt="Corte de Carne Especial" className="about-image" />
-            <div className="years-badge">+30 anos</div>
+            <div className="years-badge">+4 anos</div>
           </div>
 
           <div className="about-right">
-            <AnimatedTitle text="Title teste" className="about-title" Tag="h2" />
+            <AnimatedTitle text="Quem Somos" className="about-title" Tag="h2" />
             <AnimatedTextScrub
               className="about-text"
-              text="Lorem ipsum dolor sit amet. Ad fugiat quaerat in saepe doloribus est molestias illum. Vel porro tempora ut quam perferendis et quasi officia et illo velit non aliquam eius. Et nemo odit aut quisquam sequi rem officia alias aut omnis asperio. Lorem ipsum dolor sit amet. Ad fugiat quaerat in saepe doloribus est molestias illum. Vel porro tempora ut quam perferendis."
+              text="Na La Carne, acreditamos que uma boa refeição começa muito antes do fogo acender. Começa na escolha. Trabalhamos apenas com carnes de alta procedência, selecionadas criteriosamente para garantir maciez, sabor e frescor em cada corte. Somos o açougue de Jaú para quem leva a mesa a sério."
             />
             <div className="about-buttons">
               <ButtonRed />
@@ -247,14 +309,14 @@ const App = () => {
 
           <div className="experience-header">
             <AnimatedTitle
-              text="Title teste Title teste"
+              text="O que nos torna diferentes"
               className="experience-title"
               Tag="h2"
             />
             <p className="experience-subtitle">
-              Lorem ipsum dolor sit amet. Ad fugiat quaerat in saepe{' '}
+              Da procedência ao corte, cada detalhe é pensado para{' '}
               <br />
-              doloribus est molestias illum.
+              chegar perfeito até você.
             </p>
           </div>
 
@@ -270,17 +332,17 @@ const App = () => {
               </svg>
             </button>
 
-            <div 
-              className="cards-container" 
+            <div
+              className="cards-container"
               ref={cardsRef}
               onMouseDown={handleMouseDown}
               onMouseLeave={handleMouseLeave}
               onMouseUp={handleMouseUp}
               onMouseMove={handleMouseMove}
             >
-              {[1, 2, 3].map((item) => (
-                <div 
-                  key={item} 
+              {experienceCards.map((card, index) => (
+                <div
+                  key={index}
                   className="exp-card"
                   onClick={(e) => {
                     if (!isDragging.current) {
@@ -292,11 +354,8 @@ const App = () => {
                 >
                   <img src={cardImg} alt="Preparo de Carne" className="exp-card-img disable-drag" />
                   <div className="exp-card-content">
-                    <h3 className="exp-card-title">Title teste Title teste</h3>
-                    <p className="exp-card-desc disable-drag">
-                      Lorem ipsum dolor sit amet. Ad fugiat quaerat in saepe
-                      doloribus est molestias illum. Lorem ipsum dolor sit amet.
-                    </p>
+                    <h3 className="exp-card-title">{card.title}</h3>
+                    <p className="exp-card-desc disable-drag">{card.desc}</p>
                   </div>
                 </div>
               ))}
@@ -316,6 +375,7 @@ const App = () => {
 
           <div className="experience-cta">
             <Button />
+            <ButtonRed/>
           </div>
         </section>
 
@@ -324,7 +384,7 @@ const App = () => {
           <div className="assados-container">
             <div className="assados-header">
               <AnimatedTitle
-                text="Title teste Title as"
+                text="Assados de Dar Água na Boca"
                 className="assados-title"
                 Tag="h2"
               />
@@ -351,28 +411,28 @@ const App = () => {
                 />
                 <AnimatedTextScrub
                   className="assados-text"
-                  text="Lorem ipsum dolor sit amet. Ad fugiat quaerat in saepe doloribus est molestias illum. Vel porro tempora ut quam perferendis et quasi officia et illo velit non aliquam eius. Et nemo odit aut quisquam sequi rem officia alias aut omnis asperiores aut excepturi excepturi et molestiae voluptatem. Eum fuga minima non rerum neque in expedita optio et sint assumenda id mollitia voluptatem sit volupta. Lorem ipsum dolor sit amet. Ad fugiat quaerat in saepe doloribus est molestias illum. Vel porro tempora ut quam perferendis et quasi officia et illo velit non aliquam eius."
+                  text="Seja no espeto, na brasa ou na grelha — na La Carne você encontra tudo o que precisa para um assado inesquecível. Nossas carnes são selecionadas especialmente para garantir suculência, sabor e aquela crocância perfeita por fora. Do frango ao corte bovino, cada peça chega até você com o cuidado de quem vive e respira carne. Porque um bom assado começa muito antes de acender o fogo — começa na escolha certa."
                 />
               </div>
             </div>
           </div>
         </section>
 
-       {/* ── Details ── */}
+        {/* ── Details ── */}
         <section id="detalhes" className="details-section">
           <img src={frangoVetor} alt="Fundo Bife" className="bg-icon-bife" />
           <img src={bifeVetor} alt="Fundo Frango" className="bg-icon-frango" />
 
           <div className="details-top">
             <AnimatedTextScrub
-              text="Lorem ipsum dolor sit amet. Ad fugiat quaerat in saepe doloribus est molestias illum. Vel porro tempora ut quam perferendis et quasi officia et illo velit non aliquam eius. Et nemo odit aut quisquam sequi rem officia alias aut omnis asperiores aut excepturi excepturi et molestiae voluptatem. Eum fuga minima non rerum neque in expedita optio et sint assumenda id mollitia voluptatem sit volupta."
+              text="Cada corte que sai da La Carne passa por uma seleção rigorosa de qualidade. Não trabalhamos com qualquer coisa — escolhemos a dedo cada peça para garantir que o que chega até você seja sempre o melhor. Acreditamos que servir bem vai além do produto — é sobre a experiência completa, do atendimento à entrega, do primeiro contato até a última garfada. Porque quem entende de carne sabe que qualidade não é detalhe, é o ponto de partida."
             />
           </div>
 
           <div className="details-content">
             <div className="details-left">
               <AnimatedTitle
-                text="Title teste"
+                text="Por que escolher a La Carne?"
                 className="details-title"
                 Tag="h2"
               />
@@ -385,22 +445,13 @@ const App = () => {
 
             <div className="details-right">
               <div className="features-grid">
-                {[1, 2, 3, 4].map((item) => (
-                  <div key={item} className="feature-item">
+                {features.map((feature, index) => (
+                  <div key={index} className="feature-item">
                     <div className="feature-icon">
-                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"
-                        stroke="#4a4a4a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-                        <line x1="3" y1="9" x2="21" y2="9" />
-                        <line x1="9" y1="21" x2="9" y2="9" />
-                      </svg>
+                      {feature.icon}
                     </div>
-                    <h3 className="feature-title">Lorem ipsum dolor sit ame</h3>
-                    <p className="feature-text">
-                      Lorem ipsum dolor sit amet. Ad fugiat quaerat in saepe
-                      doloribus est molestias illum. Vel porro tempora ut quam
-                      perferendis et quasi officia et illo velit non aliquam eius.
-                    </p>
+                    <h3 className="feature-title">{feature.title}</h3>
+                    <p className="feature-text">{feature.text}</p>
                   </div>
                 ))}
               </div>

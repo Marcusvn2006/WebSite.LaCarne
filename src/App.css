@@ -55,7 +55,8 @@ body {
 
 .hero-title {
   font-family: 'Handlee', cursive;
-  font-size: 5rem;
+  font-size: 3rem;
+  line-height: 1.2;
   font-weight: 400;
   margin-bottom: 1.5rem;
   color: #F3EFDF;
@@ -314,6 +315,7 @@ body {
   justify-content: center;
   position: relative;
   z-index: 2;
+  gap: 30px;
   margin-top: 20px;
 }
 
@@ -349,7 +351,7 @@ body {
   font-weight: 400;
   line-height: 1.1;
   color: #F3EFDF;
-  max-width: 700px;
+  white-space: nowrap;
 }
 
 .assados-arrow {
@@ -473,8 +475,8 @@ body {
 
 .details-arrow {
   position: absolute;
-  top: 10px;
-  right: -20px;
+  top: -30px;
+  right: -50px;
   width: 60px;
 }
 
