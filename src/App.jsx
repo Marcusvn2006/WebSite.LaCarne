@@ -17,6 +17,8 @@ import assadosImg from "../src/assets/img/sectionAssados.webp";
 import assadosImg2 from "../src/assets/img/sectionAssados2.webp";
 import frangoVetor from "../src/assets/svg/frangovetorfundo.svg";
 import bifeVetor from "../src/assets/svg/bifevetorfundo.svg";
+import detalheImg1 from "../src/assets/img/carne1.webp"; // IMAGEM 1 AQUI
+import detalheImg2 from "../src/assets/img/carne2.webp"; // IMAGEM 2 AQUI
 
 import './App.css';
 import Header from './compenents/Header';
@@ -107,25 +109,25 @@ const AnimatedTextScrub = ({ text, className }) => {
 const experienceCards = [
   {
     title: 'Cortes Selecionados',
-    desc: 'Trabalhamos apenas com carnes de alta procedência — macias, saborosas e com o frescor que você merece em cada pedaço.',
-    image: cardImg, // Imagem do primeiro card mantida
+    desc: 'Trabalhamos apenas com carnes de padrão superior — macias, saborosas e com o frescor que você merece em cada pedaço.',
+    image: cardImg,
   },
   {
     title: 'Delivery Premium',
     desc: 'Sem sair de casa você recebe os melhores cortes na sua porta. Praticidade com o mesmo padrão La Carne de sempre.',
-    image: cardDriveImg, // Nova imagem do segundo card
+    image: cardDriveImg,
   },
   {
     title: 'Atendimento Especializado',
     desc: 'Nossa equipe conhece cada corte e está pronta para te indicar a escolha certa para o seu churrasco ou jantar especial.',
-    image: attEspecializadoImg, // Nova imagem do terceiro card
+    image: attEspecializadoImg,
   },
 ];
 
 const features = [
   {
     title: 'Qualidade Garantida',
-    text: 'Selecionamos apenas carnes de alta procedência, com rigoroso controle de qualidade em cada peça que chega ao nosso açougue.',
+    text: 'Selecionamos apenas carnes de primeira linha, com rigoroso controle de qualidade em cada peça que chega ao nosso açougue.',
     icon: (
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#4a4a4a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
         <circle cx="12" cy="8" r="7" />
@@ -250,7 +252,7 @@ const App = () => {
           </div>
           <div className="hero-content">
             <h1 className="hero-title">
-              A carne que você merecia experimentar — finalmente em Jaú.
+              A carne que você merecia experimentar aqui no La Carne.
             </h1>
             <p className="hero-text">
               Selecionamos os melhores cortes para quem não abre mão de qualidade.
@@ -299,7 +301,7 @@ const App = () => {
             <AnimatedTitle text="Quem Somos" className="about-title" Tag="h2" />
             <AnimatedTextScrub
               className="about-text"
-              text="Na La Carne, acreditamos que uma boa refeição começa muito antes do fogo acender. Começa na escolha. Trabalhamos apenas com carnes de alta procedência, selecionadas criteriosamente para garantir maciez, sabor e frescor em cada corte. Somos o açougue de Jaú para quem leva a mesa a sério."
+              text="No La Carne, acreditamos que uma boa refeição começa muito antes do fogo acender. Começa na escolha. Trabalhamos apenas com carnes de origem certificada, selecionadas criteriosamente para garantir maciez, sabor e frescor em cada corte. Somos o açougue de Jaú para quem leva a mesa a sério."
             />
             <div className="about-buttons">
               <ButtonRed />
@@ -319,23 +321,14 @@ const App = () => {
               Tag="h2"
             />
             <p className="experience-subtitle">
-              Da procedência ao corte, cada detalhe é pensado para{' '}
+              Da origem ao corte, cada detalhe é pensado para{' '}
               <br />
               chegar perfeito até você.
             </p>
           </div>
 
           <div className="experience-carousel">
-            <button
-              className="carousel-arrow"
-              onClick={() => scrollCards(-1)}
-              aria-label="Anterior"
-            >
-              <svg width="30" height="30" viewBox="0 0 24 24" fill="none"
-                stroke="#931a25" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M15 18l-6-6 6-6"/>
-              </svg>
-            </button>
+            
 
             <div
               className="cards-container"
@@ -366,16 +359,6 @@ const App = () => {
               ))}
             </div>
 
-            <button
-              className="carousel-arrow"
-              onClick={() => scrollCards(1)}
-              aria-label="Próximo"
-            >
-              <svg width="30" height="30" viewBox="0 0 24 24" fill="none"
-                stroke="#931a25" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M9 18l6-6-6-6"/>
-              </svg>
-            </button>
           </div>
 
           <div className="experience-cta">
@@ -416,7 +399,7 @@ const App = () => {
                 />
                 <AnimatedTextScrub
                   className="assados-text"
-                  text="Seja no espeto, na brasa ou na grelha — na La Carne você encontra tudo o que precisa para um assado inesquecível. Nossas carnes são selecionadas especialmente para garantir suculência, sabor e aquela crocância perfeita por fora. Do frango ao corte bovino, cada peça chega até você com o cuidado de quem vive e respira carne. Porque um bom assado começa muito antes de acender o fogo — começa na escolha certa."
+                  text="Seja no espeto, na brasa ou na grelha — no La Carne você encontra tudo o que precisa para um assado inesquecível. Nossas carnes são selecionadas especialmente para garantir suculência, sabor e aquela crocância perfeita por fora. Do frango ao corte bovino, cada peça chega até você com o cuidado de quem vive e respira carne. Porque um bom assado começa muito antes de acender o fogo — começa na escolha certa."
                 />
               </div>
             </div>
@@ -430,22 +413,25 @@ const App = () => {
 
           <div className="details-top">
             <AnimatedTextScrub
-              text="Cada corte que sai da La Carne passa por uma seleção rigorosa de qualidade. Não trabalhamos com qualquer coisa — escolhemos a dedo cada peça para garantir que o que chega até você seja sempre o melhor. Acreditamos que servir bem vai além do produto — é sobre a experiência completa, do atendimento à entrega, do primeiro contato até a última garfada. Porque quem entende de carne sabe que qualidade não é detalhe, é o ponto de partida."
+              text="Cada corte que sai do La Carne passa por uma seleção rigorosa de qualidade. Não trabalhamos com qualquer coisa — escolhemos a dedo cada peça para garantir que o que chega até você seja sempre o melhor. Acreditamos que servir bem vai além do produto — é sobre a experiência completa, do atendimento à entrega, do primeiro contato até a última garfada. Porque quem entende de carne sabe que qualidade não é detalhe, é o ponto de partida."
             />
           </div>
 
           <div className="details-content">
             <div className="details-left">
               <AnimatedTitle
-                text="Por que escolher a La Carne?"
+                text="Por que escolher o La Carne?"
                 className="details-title"
                 Tag="h2"
               />
               <img src={arrowImg} alt="Seta" className="details-arrow" />
+              
+              {/* IMAGENS DE VOLTA NO LADO ESQUERDO AQUI */}
               <div className="details-cards">
-                <div className="detail-card" />
-                <div className="detail-card" />
+                <img src={detalheImg1} alt="Detalhe La Carne 1" className="detail-img" />
+                <img src={detalheImg2} alt="Detalhe La Carne 2" className="detail-img" />
               </div>
+
             </div>
 
             <div className="details-right">
@@ -460,6 +446,13 @@ const App = () => {
                   </div>
                 ))}
               </div>
+              
+              {/* BOTÕES MANTIDOS NO LADO DIREITO AQUI */}
+              <div className="details-buttons">
+                <Button />
+                <ButtonRed />
+              </div>
+
             </div>
           </div>
         </section>
