@@ -252,7 +252,7 @@ const App = () => {
           </div>
           <div className="hero-content">
             <h1 className="hero-title">
-              A carne que você merecia experimentar aqui no La Carne.
+              A carne que você merecia experimentar aqui no <br/>La Carne.
             </h1>
             <p className="hero-text">
               Selecionamos os melhores cortes para quem não abre mão de qualidade.
