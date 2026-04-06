@@ -107,6 +107,7 @@ const AnimatedTextScrub = ({ text, className }) => {
 
 /* ── Cards data ── */
 const experienceCards = [
+  
   {
     title: 'Cortes Selecionados',
     desc: 'Trabalhamos apenas com carnes de padrão superior — macias, saborosas e com o frescor que você merece em cada pedaço.',

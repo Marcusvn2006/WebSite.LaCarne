@@ -554,7 +554,7 @@ body {
   gap: 20px;
   margin-top: 80px; /* Distância da grade de ícones */
   justify-content: flex-start;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 
 /* ═══════════════════════════════════════════

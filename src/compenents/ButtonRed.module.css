@@ -34,3 +34,27 @@
   width: 25px;
   height: 25px;
 }
+/* Media Query para dispositivos móveis */
+@media (max-width: 768px) {
+  .buttonRed {
+    padding: 6px 6px 6px 16px; /* Reduzi o preenchimento lateral e vertical */
+    font-size: 0.85rem;        /* Fonte menor */
+    gap: 10px;                 /* Menos espaço entre o texto e o ícone */
+    box-shadow: 3px 3px 0px #000000; /* Sombra menor para combinar com o botão menor */
+  }
+
+  .iconCircle {
+    width: 30px;               /* Círculo do ícone menor */
+    height: 30px;
+  }
+
+  .iconCircle img {
+    width: 16px;               /* Ícone interno menor */
+    height: 16px;
+  }
+  
+  .buttonRed:active {
+    transform: translate(1px, 1px); /* Ajuste leve na animação de clique */
+    box-shadow: 2px 2px 0px #000000;
+  }
+}
